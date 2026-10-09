@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage your incoming and outgoing SkillSwap skill exchange proposals and accepted connections.">
+  <meta name="theme-color" content="#0B0B12">
+
+  <title>Swap Requests | SkillSwap</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#requests-main-content" class="skip-link">Skip to swap requests content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="SkillSwap Home">
+        <div class="logo-icon-wrap" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3l4 4-4 4"></path>
+            <path d="M20 7H4"></path>
+            <path d="M8 21l-4-4 4-4"></path>
+            <path d="M4 17h16"></path>
+          </svg>
+        </div>
+        <div class="brand-name"><span>Skill</span><span>Swap</span></div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="explore.html" class="nav-link">Explore Skills</a>
+        <a href="matches.html" class="nav-link">Find Matches</a>
+        <a href="requests.html" class="nav-link active">Requests</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="profile.html" class="nav-link">My Profile</a>
+      </nav>
+
+      <!-- Desktop Nav Actions (Auth-aware dynamically synchronized) -->
+      <div class="nav-actions">
+        <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+        <a href="profile.html" class="btn btn-secondary btn-sm">My Profile</a>
+      </div>
+
+      <!-- Mobile Hamburger Toggle Button -->
+      <button class="nav-toggle-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <aside id="mobile-nav" class="mobile-nav-drawer" aria-label="Mobile Navigation Drawer">
+    <nav class="mobile-nav-list">
+      <a href="../index.html" class="mobile-nav-link">
+        <span>Home</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="explore.html" class="mobile-nav-link">
+        <span>Explore Skills</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="matches.html" class="mobile-nav-link">
+        <span>Find Matches</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="requests.html" class="mobile-nav-link active">
+        <span>Swap Requests</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="dashboard.html" class="mobile-nav-link">
+        <span>Dashboard</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="profile.html" class="mobile-nav-link">
+        <span>My Profile</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+    </nav>
+    <div class="mobile-nav-actions">
+      <a href="dashboard.html" class="btn btn-outline btn-block">Dashboard</a>
+      <a href="profile.html" class="btn btn-secondary btn-block">My Profile</a>
+    </div>
+  </aside>
+
+  <!-- Main Requests Page Container -->
+  <main id="requests-main-content" class="container requests-page-wrapper">
+
+    <!-- 1. Page Header Section -->
+    <section class="requests-header-section" aria-labelledby="requests-heading">
+      <div class="auth-badge" style="margin-bottom: 0.85rem;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M16 3l4 4-4 4"></path>
+          <path d="M20 7H4"></path>
+          <path d="M8 21l-4-4 4-4"></path>
+          <path d="M4 17h16"></path>
+        </svg>
+        <span>Peer Exchange Hub</span>
+      </div>
+      <h1 id="requests-heading" class="section-title">
+        Swap <span class="gradient-text">Requests</span>
+      </h1>
+      <p class="section-subtitle" style="max-width: 620px; margin: 0 auto;">
+        Manage incoming and outgoing skill exchange requests. Connect with peers who share mutual learning goals.
+      </p>
+    </section>
+
+    <!-- 2. Requests Navigation Tabs (Incoming, Sent, Connections) -->
+    <div class="requests-tabs-nav" role="tablist" aria-label="Swap requests and connections tabs">
+      <button 
+        type="button" 
+        class="requests-tab-btn active" 
+        data-tab="incoming" 
+        role="tab" 
+        aria-selected="true" 
+        aria-controls="panel-incoming"
+      >
+        <span>Incoming</span>
+        <span id="badge-incoming-count" class="tab-badge tab-badge-amber">0</span>
+      </button>
+
+      <button 
+        type="button" 
+        class="requests-tab-btn" 
+        data-tab="sent" 
+        role="tab" 
+        aria-selected="false" 
+        aria-controls="panel-sent"
+      >
+        <span>Sent</span>
+        <span id="badge-sent-count" class="tab-badge">0</span>
+      </button>
+
+      <button 
+        type="button" 
+        class="requests-tab-btn" 
+        data-tab="connections" 
+        role="tab" 
+        aria-selected="false" 
+        aria-controls="panel-connections"
+      >
+        <span>Your Connections</span>
+        <span id="badge-connections-count" class="tab-badge tab-badge-cyan">0</span>
+      </button>
+    </div>
+
+    <!-- 3. Tab Panel: Incoming Requests -->
+    <section 
+      id="panel-incoming" 
+      class="requests-tab-panel active" 
+      role="tabpanel" 
+      aria-labelledby="tab-incoming"
+    >
+      <div id="incoming-cards-grid" class="requests-cards-grid">
+        <!-- Populated dynamically by requests-page.js -->
+      </div>
+
+      <!-- Empty State for Incoming -->
+      <div id="incoming-empty-state" class="empty-state-box" style="display: none;" role="region" aria-label="No incoming requests">
+        <div class="empty-state-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+            <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+          </svg>
+        </div>
+        <h2 class="empty-state-title">No incoming requests</h2>
+        <p class="empty-state-desc">
+          Matched with someone? Send them a swap request to start learning together, or explore peers offering skills you seek.
+        </p>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem;">
+          <a href="matches.html" class="btn btn-primary btn-sm">Find Matches</a>
+          <a href="explore.html" class="btn btn-secondary btn-sm">Explore Skills</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Tab Panel: Sent Requests -->
+    <section 
+      id="panel-sent" 
+      class="requests-tab-panel" 
+      role="tabpanel" 
+      aria-labelledby="tab-sent"
+    >
+      <div id="sent-cards-grid" class="requests-cards-grid">
+        <!-- Populated dynamically by requests-page.js -->
+      </div>
+
+      <!-- Empty State for Sent -->
+      <div id="sent-empty-state" class="empty-state-box" style="display: none;" role="region" aria-label="No sent requests">
+        <div class="empty-state-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </div>
+        <h2 class="empty-state-title">You haven't sent any requests yet</h2>
+        <p class="empty-state-desc">
+          Discover students whose skills match your learning wishlist and propose a mutual exchange session.
+        </p>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem;">
+          <a href="matches.html" class="btn btn-primary btn-sm">Explore Matches</a>
+          <a href="explore.html" class="btn btn-secondary btn-sm">Browse Directory</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Tab Panel: Connections -->
+    <section 
+      id="panel-connections" 
+      class="requests-tab-panel" 
+      role="tabpanel" 
+      aria-labelledby="tab-connections"
+    >
+      <div id="connections-cards-grid" class="requests-cards-grid">
+        <!-- Populated dynamically by requests-page.js -->
+      </div>
+
+      <!-- Empty State for Connections -->
+      <div id="connections-empty-state" class="empty-state-box" style="display: none;" role="region" aria-label="No connections yet">
+        <div class="empty-state-icon" aria-hidden="true" style="background: rgba(34, 211, 238, 0.12); color: var(--secondary-light); border-color: rgba(34, 211, 238, 0.25);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <h2 class="empty-state-title">No connections yet</h2>
+        <p class="empty-state-desc">
+          Accept an incoming swap request or send proposals to peers to start building your exchange network.
+        </p>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem;">
+          <a href="matches.html" class="btn btn-primary btn-sm">Find Matches</a>
+          <a href="profile.html" class="btn btn-secondary btn-sm">Edit Skills</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 6. Accessible Reject Confirmation Modal Dialog -->
+  <div id="reject-confirm-modal" class="match-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="reject-modal-title" aria-hidden="true">
+    <div class="match-modal-dialog confirm-modal-box">
+      <div class="modal-dialog-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="toast-icon toast-icon-info" style="background: rgba(239, 68, 68, 0.18); color: var(--danger); width: 32px; height: 32px;" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="15" y1="9" x2="9" y2="15"></line>
+              <line x1="9" y1="9" x2="15" y2="15"></line>
+            </svg>
+          </div>
+          <h2 id="reject-modal-title" class="match-peer-name" style="margin-bottom: 0;">Reject Swap Request</h2>
+        </div>
+        <button type="button" id="reject-modal-close-btn" class="modal-close-button" aria-label="Close reject confirmation dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-dialog-body" style="gap: 1rem;">
+        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+          Are you sure you want to decline this skill exchange request from <strong id="reject-modal-sender-name" style="color: var(--text-primary);">Peer</strong>?
+        </p>
+        <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.45; margin: 0;">
+          This request will be marked as rejected. No connection will be created. The sender may send another proposal later if skills align.
+        </p>
+      </div>
+      <div class="modal-dialog-footer">
+        <button type="button" id="reject-modal-cancel-btn" class="btn btn-outline btn-sm">Cancel</button>
+        <button type="button" id="reject-modal-confirm-btn" class="btn btn-sm" style="background: var(--danger); color: #FFFFFF; border-color: var(--danger);">
+          <span>Reject Request</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="padding: 2.5rem 0; margin-top: auto;" role="contentinfo">
+    <div class="container footer-bottom" style="border-top: none; padding-top: 0; justify-content: center; text-align: center;">
+      <p>© 2026 SkillSwap • Peer-to-Peer Skill Exchange Platform • College PBL Project</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/matches.js"></script>
+  <script src="../js/requests.js"></script>
+  <script src="../js/requests-page.js"></script>
+</body>
+</html>

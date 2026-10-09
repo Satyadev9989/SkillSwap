@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your SkillSwap profile. Select the skills you can teach and what you want to learn to connect with peer matches.">
+  <meta name="theme-color" content="#0B0B12">
+
+  <title>Create Your Profile | SkillSwap</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#signup-form" class="skip-link">Skip to registration form</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="SkillSwap Home">
+        <div class="logo-icon-wrap" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3l4 4-4 4"></path>
+            <path d="M20 7H4"></path>
+            <path d="M8 21l-4-4 4-4"></path>
+            <path d="M4 17h16"></path>
+          </svg>
+        </div>
+        <div class="brand-name"><span>Skill</span><span>Swap</span></div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
+        <a href="../index.html" class="btn btn-secondary btn-sm">← Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Sign-Up Container -->
+  <main class="container auth-page-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-badge">
+          <span>Peer Onboarding • Zero Fees</span>
+        </div>
+        <h1 class="auth-title">Create your <span class="gradient-text">SkillSwap</span> profile</h1>
+        <p class="auth-subtitle">Tell us what you can teach and what you want to learn.</p>
+      </div>
+
+      <!-- Top Global Error Alert Banner -->
+      <div id="signup-alert-banner" class="alert-banner alert-banner-error" role="alert" aria-live="polite">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <span id="signup-alert-text">Please correct the errors in the form before submitting.</span>
+      </div>
+
+      <!-- Sign-Up Multi-Section Form -->
+      <form id="signup-form" class="auth-form" novalidate>
+        
+        <!-- SECTION 1: Basic Information -->
+        <section class="form-section" aria-labelledby="section-basic-title">
+          <div class="form-section-title" id="section-basic-title">
+            <span>1. Basic Information</span>
+            <span class="badge badge-purple">Step 1 of 3</span>
+          </div>
+          <p class="form-section-desc">Your credentials to connect with peers and access your dashboard.</p>
+
+          <div class="form-group">
+            <label for="fullname" class="form-label">
+              <span>Full Name <span class="form-label-required" aria-hidden="true">*</span></span>
+            </label>
+            <div class="form-input-wrap">
+              <input 
+                type="text" 
+                id="fullname" 
+                name="fullname" 
+                class="form-input" 
+                placeholder="e.g. Alex Rivera" 
+                autocomplete="name"
+                required
+              >
+            </div>
+            <div id="fullname-error" class="form-error" role="alert">Please enter your full name.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">
+              <span>Email Address <span class="form-label-required" aria-hidden="true">*</span></span>
+            </label>
+            <div class="form-input-wrap">
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form-input" 
+                placeholder="name@college.edu or personal email" 
+                autocomplete="email"
+                required
+              >
+            </div>
+            <div id="email-error" class="form-error" role="alert">Please enter a valid email address.</div>
+          </div>
+
+          <div class="form-grid-2">
+            <!-- Password Field -->
+            <div class="form-group">
+              <label for="password" class="form-label">
+                <span>Password <span class="form-label-required" aria-hidden="true">*</span></span>
+              </label>
+              <div class="form-input-wrap">
+                <input 
+                  type="password" 
+                  id="password" 
+                  name="password" 
+                  class="form-input form-input-password" 
+                  placeholder="At least 6 characters" 
+                  autocomplete="new-password"
+                  required
+                >
+                <button 
+                  type="button" 
+                  class="password-toggle-btn js-toggle-pwd" 
+                  data-target="password" 
+                  aria-label="Show password"
+                  title="Toggle password visibility"
+                >
+                  <!-- Eye Open Icon -->
+                  <svg class="icon-eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  <!-- Eye Closed Icon -->
+                  <svg class="icon-eye-closed" style="display: none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                  </svg>
+                </button>
+              </div>
+              <div id="password-error" class="form-error" role="alert">Password must be at least 6 characters.</div>
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div class="form-group">
+              <label for="confirm-password" class="form-label">
+                <span>Confirm Password <span class="form-label-required" aria-hidden="true">*</span></span>
+              </label>
+              <div class="form-input-wrap">
+                <input 
+                  type="password" 
+                  id="confirm-password" 
+                  name="confirmPassword" 
+                  class="form-input form-input-password" 
+                  placeholder="Re-enter password" 
+                  autocomplete="new-password"
+                  required
+                >
+                <button 
+                  type="button" 
+                  class="password-toggle-btn js-toggle-pwd" 
+                  data-target="confirm-password" 
+                  aria-label="Show password"
+                  title="Toggle password visibility"
+                >
+                  <svg class="icon-eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  <svg class="icon-eye-closed" style="display: none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                  </svg>
+                </button>
+              </div>
+              <div id="confirm-password-error" class="form-error" role="alert">Passwords do not match.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 2: Skills You Can Teach -->
+        <section class="form-section" aria-labelledby="section-teach-title">
+          <div class="form-section-title" id="section-teach-title">
+            <span>2. Skills You Can Teach <span class="form-label-required" aria-hidden="true">*</span></span>
+            <span id="teach-counter" class="skill-counter-badge">0 selected</span>
+          </div>
+          <p class="form-section-desc">Click each skill you are confident in explaining or tutoring to a peer. (Select at least 1)</p>
+
+          <div class="skill-selector-container">
+            <div id="teach-skills-catalog" class="skill-chips-catalog" role="group" aria-label="Skills you can teach">
+              <!-- Dynamically populated or rendered chips -->
+            </div>
+            <div id="teach-skills-error" class="form-error" role="alert">Please select at least one skill you can teach.</div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: Skills You Want To Learn -->
+        <section class="form-section" aria-labelledby="section-learn-title">
+          <div class="form-section-title" id="section-learn-title">
+            <span>3. Skills You Want To Learn <span class="form-label-required" aria-hidden="true">*</span></span>
+            <span id="learn-counter" class="skill-counter-badge">0 selected</span>
+          </div>
+          <p class="form-section-desc">Click the skills you want someone to teach or pair with you on. (Select at least 1)</p>
+
+          <div class="skill-selector-container">
+            <div id="learn-skills-catalog" class="skill-chips-catalog" role="group" aria-label="Skills you want to learn">
+              <!-- Dynamically populated or rendered chips -->
+            </div>
+            <div id="learn-skills-error" class="form-error" role="alert">Please select at least one skill you want to learn.</div>
+          </div>
+        </section>
+
+        <!-- SECTION 4: Skill Level -->
+        <section class="form-section" aria-labelledby="section-level-title">
+          <div class="form-section-title" id="section-level-title">
+            <span>4. Overall Skill Level <span class="form-label-required" aria-hidden="true">*</span></span>
+          </div>
+          <p class="form-section-desc">Select your general experience level to help us pair you with compatible exchange peers.</p>
+
+          <div class="level-pill-group" role="radiogroup" aria-labelledby="section-level-title">
+            <label class="level-pill-label">
+              <input type="radio" name="skillLevel" value="Beginner" class="level-pill-input">
+              <span class="level-title">Beginner</span>
+              <span class="level-desc">Foundations & basics</span>
+            </label>
+
+            <label class="level-pill-label">
+              <input type="radio" name="skillLevel" value="Intermediate" class="level-pill-input" checked>
+              <span class="level-title">Intermediate</span>
+              <span class="level-desc">Practical projects & core</span>
+            </label>
+
+            <label class="level-pill-label">
+              <input type="radio" name="skillLevel" value="Advanced" class="level-pill-input">
+              <span class="level-title">Advanced</span>
+              <span class="level-desc">Deep specialized expertise</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- Submit & Navigation Action -->
+        <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
+          <button type="submit" id="signup-submit-btn" class="btn btn-primary btn-lg btn-primary-glow btn-block">
+            <span>Create Account & Start Swapping</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+
+          <p style="text-align: center; font-size: 0.9rem; color: var(--text-secondary);">
+            Already have a SkillSwap account? 
+            <a href="login.html" style="color: var(--secondary); font-weight: 600; text-decoration: underline;">Log In</a>
+          </p>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="padding: 2rem 0; margin-top: auto;">
+    <div class="container footer-bottom" style="border-top: none; padding-top: 0; justify-content: center; text-align: center;">
+      <p>© 2026 SkillSwap • Peer-to-Peer Skill Exchange Platform • College PBL Project</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Guard: If already logged in, redirect to dashboard
+      SkillSwapAuth.redirectIfLoggedIn('dashboard.html');
+
+      // State tracking for selected skills (using Sets to guarantee no duplicates)
+      const selectedTeachSkills = new Set();
+      const selectedLearnSkills = new Set();
+
+      const skillCatalog = (window.SkillSwapData && window.SkillSwapData.allSkills) || [
+        'Java', 'Python', 'JavaScript', 'HTML & CSS', 'C++', 'UI/UX Design',
+        'Figma', 'Graphic Design', 'Video Editing', 'Photoshop', 'Public Speaking',
+        'Communication', 'Excel', 'Photography', 'Content Writing'
+      ];
+
+      const teachCatalogEl = document.getElementById('teach-skills-catalog');
+      const learnCatalogEl = document.getElementById('learn-skills-catalog');
+      const teachCounterEl = document.getElementById('teach-counter');
+      const learnCounterEl = document.getElementById('learn-counter');
+
+      // 2. Render Modern Skill-Chips
+      function renderSkillChips(container, type, selectedSet, counterEl) {
+        container.innerHTML = '';
+        skillCatalog.forEach(skill => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'skill-chip-btn';
+          btn.setAttribute('data-skill', skill);
+          btn.setAttribute('aria-pressed', 'false');
+
+          btn.innerHTML = `
+            <svg class="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>${skill}</span>
+          `;
+
+          btn.addEventListener('click', () => {
+            const isSelected = selectedSet.has(skill);
+            if (isSelected) {
+              selectedSet.delete(skill);
+              btn.classList.remove(type === 'teach' ? 'is-selected-teach' : 'is-selected-learn');
+              btn.setAttribute('aria-pressed', 'false');
+            } else {
+              selectedSet.add(skill);
+              btn.classList.add(type === 'teach' ? 'is-selected-teach' : 'is-selected-learn');
+              btn.setAttribute('aria-pressed', 'true');
+            }
+
+            // Update counter
+            const count = selectedSet.size;
+            counterEl.textContent = `${count} selected`;
+            if (count > 0) {
+              counterEl.classList.add('has-selected');
+              // Clear inline error if any
+              document.getElementById(`${type}-skills-error`).classList.remove('visible');
+            } else {
+              counterEl.classList.remove('has-selected');
+            }
+          });
+
+          container.appendChild(btn);
+        });
+      }
+
+      renderSkillChips(teachCatalogEl, 'teach', selectedTeachSkills, teachCounterEl);
+      renderSkillChips(learnCatalogEl, 'learn', selectedLearnSkills, learnCounterEl);
+
+      // 3. Overall Skill Level Radio Selection Sync
+      const levelLabels = document.querySelectorAll('.level-pill-label');
+      function syncSkillLevelHighlight() {
+        levelLabels.forEach(label => {
+          const radio = label.querySelector('.level-pill-input');
+          if (radio && radio.checked) {
+            label.classList.add('is-selected');
+          } else {
+            label.classList.remove('is-selected');
+          }
+        });
+      }
+      levelLabels.forEach(label => {
+        const radio = label.querySelector('.level-pill-input');
+        if (radio) {
+          radio.addEventListener('change', syncSkillLevelHighlight);
+        }
+      });
+      syncSkillLevelHighlight();
+
+      // 4. Password Show/Hide Toggle Implementation
+      document.querySelectorAll('.js-toggle-pwd').forEach(toggleBtn => {
+        toggleBtn.addEventListener('click', () => {
+          const targetId = toggleBtn.getAttribute('data-target');
+          const input = document.getElementById(targetId);
+          const eyeOpen = toggleBtn.querySelector('.icon-eye-open');
+          const eyeClosed = toggleBtn.querySelector('.icon-eye-closed');
+
+          if (input.type === 'password') {
+            input.type = 'text';
+            eyeOpen.style.display = 'none';
+            eyeClosed.style.display = 'block';
+            toggleBtn.setAttribute('aria-label', 'Hide password');
+          } else {
+            input.type = 'password';
+            eyeOpen.style.display = 'block';
+            eyeClosed.style.display = 'none';
+            toggleBtn.setAttribute('aria-label', 'Show password');
+          }
+        });
+      });
+
+      // 4. Form Validation & Submission
+      const form = document.getElementById('signup-form');
+      const fullnameInput = document.getElementById('fullname');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const confirmPasswordInput = document.getElementById('confirm-password');
+
+      const alertBanner = document.getElementById('signup-alert-banner');
+      const alertText = document.getElementById('signup-alert-text');
+
+      // Helper function to set inline error
+      function setFieldError(input, errorEl, message) {
+        if (input) input.classList.add('is-invalid');
+        if (errorEl) {
+          errorEl.textContent = message;
+          errorEl.classList.add('visible');
+        }
+      }
+
+      function clearFieldError(input, errorEl) {
+        if (input) input.classList.remove('is-invalid');
+        if (errorEl) errorEl.classList.remove('visible');
+      }
+
+      // Live validation clearing on input
+      fullnameInput.addEventListener('input', () => clearFieldError(fullnameInput, document.getElementById('fullname-error')));
+      emailInput.addEventListener('input', () => clearFieldError(emailInput, document.getElementById('email-error')));
+      passwordInput.addEventListener('input', () => clearFieldError(passwordInput, document.getElementById('password-error')));
+      confirmPasswordInput.addEventListener('input', () => clearFieldError(confirmPasswordInput, document.getElementById('confirm-password-error')));
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alertBanner.classList.remove('visible');
+
+        let isValid = true;
+
+        // Validate Name
+        const nameVal = fullnameInput.value.trim();
+        if (!nameVal) {
+          setFieldError(fullnameInput, document.getElementById('fullname-error'), 'Please enter your full name.');
+          isValid = false;
+        } else {
+          clearFieldError(fullnameInput, document.getElementById('fullname-error'));
+        }
+
+        // Validate Email
+        const emailVal = emailInput.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailVal || !emailRegex.test(emailVal)) {
+          setFieldError(emailInput, document.getElementById('email-error'), 'Please enter a valid email address.');
+          isValid = false;
+        } else {
+          clearFieldError(emailInput, document.getElementById('email-error'));
+        }
+
+        // Validate Password
+        const pwdVal = passwordInput.value;
+        if (!pwdVal || pwdVal.length < 6) {
+          setFieldError(passwordInput, document.getElementById('password-error'), 'Password must be at least 6 characters long.');
+          isValid = false;
+        } else {
+          clearFieldError(passwordInput, document.getElementById('password-error'));
+        }
+
+        // Validate Confirm Password
+        const confirmVal = confirmPasswordInput.value;
+        if (confirmVal !== pwdVal) {
+          setFieldError(confirmPasswordInput, document.getElementById('confirm-password-error'), 'Passwords do not match.');
+          isValid = false;
+        } else {
+          clearFieldError(confirmPasswordInput, document.getElementById('confirm-password-error'));
+        }
+
+        // Validate Teaching Skills
+        if (selectedTeachSkills.size === 0) {
+          const teachErr = document.getElementById('teach-skills-error');
+          teachErr.classList.add('visible');
+          isValid = false;
+        } else {
+          document.getElementById('teach-skills-error').classList.remove('visible');
+        }
+
+        // Validate Learning Skills
+        if (selectedLearnSkills.size === 0) {
+          const learnErr = document.getElementById('learn-skills-error');
+          learnErr.classList.add('visible');
+          isValid = false;
+        } else {
+          document.getElementById('learn-skills-error').classList.remove('visible');
+        }
+
+        if (!isValid) {
+          alertText.textContent = 'Please correct the highlighted fields before proceeding.';
+          alertBanner.classList.add('visible');
+          // Scroll up slightly to view errors if needed
+          window.scrollTo({ top: 100, behavior: 'smooth' });
+          return;
+        }
+
+        // Selected skill level
+        const levelInput = form.querySelector('input[name="skillLevel"]:checked');
+        const skillLevel = levelInput ? levelInput.value : 'Intermediate';
+
+        // Register user via SkillSwapAuth
+        const regResult = SkillSwapAuth.registerUser({
+          name: nameVal,
+          email: emailVal,
+          password: pwdVal,
+          teachSkills: Array.from(selectedTeachSkills),
+          learnSkills: Array.from(selectedLearnSkills),
+          skillLevel: skillLevel
+        });
+
+        if (!regResult.success) {
+          if (regResult.message && regResult.message.toLowerCase().includes('email')) {
+            setFieldError(emailInput, document.getElementById('email-error'), regResult.message);
+          }
+          alertText.textContent = regResult.message || 'Registration failed.';
+          alertBanner.classList.add('visible');
+          return;
+        }
+
+        // Success Feedback & Redirect
+        alertBanner.className = 'alert-banner alert-banner-success visible';
+        alertBanner.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Welcome, ${regResult.user.name}! Your profile was created. Redirecting to your dashboard...</span>
+        `;
+
+        const submitBtn = document.getElementById('signup-submit-btn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Redirecting...</span>`;
+
+        setTimeout(() => {
+          window.location.href = 'dashboard.html';
+        }, 800);
+      });
+    });
+  </script>
+</body>
+</html>

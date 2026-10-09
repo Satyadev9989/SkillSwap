@@ -1,0 +1,467 @@
+/* ==========================================================================
+   SkillSwap - Peer-to-Peer Skill Exchange Platform
+   Responsive Stylesheet (css/responsive.css)
+   Breakpoints, Mobile Nav, Layout Adjustments & Accessibility
+   ========================================================================== */
+
+/* --- Large Tablets & Laptops (max-width: 1024px) --- */
+@media screen and (max-width: 1024px) {
+  :root {
+    --space-4xl: 4.5rem;
+    --space-3xl: 3.5rem;
+  }
+
+  /* Hero Section */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    align-items: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .hero-support-text {
+    max-width: 620px;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-social-proof {
+    justify-content: center;
+    max-width: 450px;
+  }
+
+  .hero-exchange-wrapper {
+    max-width: 500px;
+  }
+
+  /* Steps Grid */
+  .steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  /* Popular Skills Grid */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .footer-brand {
+    grid-column: span 3;
+    max-width: 100%;
+    margin-bottom: var(--space-md);
+  }
+}
+
+/* --- Tablets & Mobile Devices (max-width: 768px) --- */
+@media screen and (max-width: 768px) {
+  :root {
+    --header-height: 68px;
+    --space-4xl: 3.5rem;
+    --space-3xl: 2.75rem;
+    --space-2xl: 2rem;
+  }
+
+  /* Navigation Bar */
+  .desktop-nav,
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-toggle-btn {
+    display: flex;
+  }
+
+  /* Stats Ribbon */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg) var(--space-md);
+  }
+
+  .stat-item:nth-child(2)::after {
+    display: none;
+  }
+
+  /* Steps Grid */
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  /* Feature Highlights */
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .feature-card {
+    padding: var(--space-xl);
+  }
+
+  /* CTA Section */
+  .cta-box {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+}
+
+/* --- Small Mobile Phones (max-width: 480px) --- */
+@media screen and (max-width: 480px) {
+  .container {
+    padding-left: 1.15rem;
+    padding-right: 1.15rem;
+  }
+
+  /* Hero */
+  .hero-headline {
+    font-size: 2.15rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .hero-social-proof {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  /* Hero Exchange Card on small screens */
+  .exchange-board {
+    padding: 1.25rem 1rem;
+  }
+
+  .peer-card {
+    padding: 0.95rem;
+  }
+
+  .peer-skills-exchange {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .floating-tag {
+    position: static;
+    margin: 0 auto 0.75rem;
+    width: fit-content;
+    animation: none;
+  }
+
+  .floating-tag-top {
+    margin-bottom: 0.85rem;
+  }
+
+  .floating-tag-bottom {
+    margin-top: 0.85rem;
+  }
+
+  /* Stats Ribbon */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .stat-item::after {
+    display: none !important;
+  }
+
+  /* Skills Grid */
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Skills Filter Bar */
+  .skills-filter-bar {
+    gap: 0.4rem;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .footer-brand {
+    grid-column: span 1;
+  }
+
+  /* Toast Notification */
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .toast {
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+/* --- Accessibility: Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .pulse-circle::after,
+  .swap-arrows-icon,
+  .floating-tag {
+    animation: none !important;
+  }
+}
+
+
+/* --- Stage 2 Responsive Rules for Forms, Onboarding & Dashboard --- */
+@media screen and (max-width: 1024px) {
+  .dashboard-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .auth-card {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .summary-skills-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .summary-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .dashboard-welcome-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .level-pill-group {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-actions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* --- Stage 3 Responsive Rules for Explore Directory --- */
+@media screen and (max-width: 1024px) {
+  .explore-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .explore-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .filters-dropdowns-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .filter-select-item {
+    width: 100%;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  .explore-filter-panel {
+    padding: var(--space-md);
+  }
+
+  .category-pills-row {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.75rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cat-pill-btn {
+    flex-shrink: 0;
+  }
+}
+
+/* --- Stage 4 Responsive Rules for Mutual Matchmaking --- */
+@media screen and (max-width: 1024px) {
+  .matches-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .matches-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .matches-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .match-filter-buttons {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .match-filter-btn {
+    flex-shrink: 0;
+  }
+
+  .matches-sort-wrap {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .matches-sort-select {
+    flex-grow: 1;
+  }
+
+  .match-summary-ribbon {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-bottom: 0.75rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .summary-pill {
+    flex-shrink: 0;
+  }
+
+  .match-exchange-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .incomplete-profile-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+/* --- Stage 5 Responsive Rules for Swap Requests & Connections --- */
+@media screen and (max-width: 1024px) {
+  .requests-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .requests-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .requests-tabs-nav {
+    border-radius: var(--radius-lg);
+    justify-content: stretch;
+    padding: 0.4rem;
+  }
+
+  .requests-tab-btn {
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .request-skills-box {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .request-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .request-actions-group {
+    justify-content: flex-end;
+  }
+}

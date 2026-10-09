@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SkillSwap Student Hub. View your profile summary, skills offered, skills wanted, and active exchange requests.">
+  <meta name="theme-color" content="#0B0B12">
+
+  <title>Dashboard | SkillSwap</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#dashboard-main" class="skip-link">Skip to dashboard content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="SkillSwap Home">
+        <div class="logo-icon-wrap" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3l4 4-4 4"></path>
+            <path d="M20 7H4"></path>
+            <path d="M8 21l-4-4 4-4"></path>
+            <path d="M4 17h16"></path>
+          </svg>
+        </div>
+        <div class="brand-name"><span>Skill</span><span>Swap</span></div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav" aria-label="Dashboard Navigation">
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+        <a href="explore.html" class="nav-link">Explore Skills</a>
+        <a href="matches.html" class="nav-link">Find Matches</a>
+        <a href="requests.html" class="nav-link">Requests</a>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <a href="profile.html" class="btn btn-secondary btn-sm" id="nav-profile-btn">
+          <span>My Profile</span>
+        </a>
+        <button type="button" class="btn btn-outline btn-sm js-logout-btn" aria-label="Log out of SkillSwap">
+          <span>Log Out</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="nav-toggle-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <aside id="mobile-nav" class="mobile-nav-drawer" aria-label="Mobile Navigation Drawer">
+    <nav class="mobile-nav-list">
+      <a href="dashboard.html" class="mobile-nav-link active">
+        <span>Dashboard</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="profile.html" class="mobile-nav-link">
+        <span>My Profile</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="explore.html" class="mobile-nav-link">
+        <span>Explore Skills</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="matches.html" class="mobile-nav-link">
+        <span>Find Matches</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="requests.html" class="mobile-nav-link">
+        <span>Swap Requests</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="../index.html" class="mobile-nav-link">
+        <span>Landing Page</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+    </nav>
+    <div class="mobile-nav-actions">
+      <button type="button" class="btn btn-outline btn-block js-logout-btn">Log Out</button>
+    </div>
+  </aside>
+
+  <!-- Main Dashboard View -->
+  <main id="dashboard-main" class="container dashboard-container">
+    
+    <!-- 1. Hero Welcome Card -->
+    <div class="dashboard-hero">
+      <div class="dashboard-welcome-top">
+        <div class="dashboard-user-greeting">
+          <div id="user-avatar" class="dashboard-avatar-large" aria-hidden="true">AR</div>
+          <div class="dashboard-greeting-text">
+            <h1>Welcome back, <span id="user-greeting-name" class="gradient-text">Alex</span> 👋</h1>
+            <p>Your Peer-to-Peer Skill Exchange Hub • Connected with college network</p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="profile.html" class="btn btn-secondary btn-sm">Edit Profile</a>
+          <button type="button" class="btn btn-outline btn-sm js-logout-btn">Log Out</button>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.85rem; color: var(--text-secondary);">
+        <span class="badge badge-purple" id="user-level-badge">Intermediate</span>
+        <span>•</span>
+        <span id="user-email-text">alex@example.com</span>
+      </div>
+    </div>
+
+    <!-- 2. Stats Grid (4 Metrics) -->
+    <section aria-labelledby="stats-heading" style="margin-bottom: 2rem;">
+      <h2 id="stats-heading" class="sr-only" style="display: none;">Platform Overview Stats</h2>
+      <div class="dashboard-stats-grid">
+        <!-- Stat 1: Skills Offered -->
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon dash-stat-icon-purple" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 19V5M5 12l7-7 7 7"></path>
+            </svg>
+          </div>
+          <div>
+            <div id="stat-offered" class="dash-stat-value">0</div>
+            <div class="dash-stat-label">Skills Offered</div>
+          </div>
+        </div>
+
+        <!-- Stat 2: Skills Wanted -->
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon dash-stat-icon-cyan" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v14M19 12l-7 7-7-7"></path>
+            </svg>
+          </div>
+          <div>
+            <div id="stat-wanted" class="dash-stat-value">0</div>
+            <div class="dash-stat-label">Skills Wanted</div>
+          </div>
+        </div>
+
+        <!-- Stat 3: Connections -->
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon dash-stat-icon-green" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div>
+            <div id="stat-connections" class="dash-stat-value">0</div>
+            <div class="dash-stat-label">Connections</div>
+          </div>
+        </div>
+
+        <!-- Stat 4: Pending Requests -->
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon dash-stat-icon-amber" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div id="stat-pending-requests" class="dash-stat-value">0</div>
+            <div class="dash-stat-label">Pending Requests</div>
+          </div>
+        </div>
+
+        <!-- Stat 5: Swap Sessions -->
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon dash-stat-icon-purple" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div id="stat-sessions" class="dash-stat-value">0</div>
+            <div class="dash-stat-label">Swap Sessions</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Profile Summary Card (Skills I Teach, Skills I Want) -->
+    <section class="dashboard-summary-card" aria-labelledby="summary-heading">
+      <div class="summary-header">
+        <div class="summary-title-group">
+          <h2 id="summary-heading">Your Exchange Profile</h2>
+          <p class="text-secondary">Skills currently listed on your public peer exchange profile.</p>
+        </div>
+        <a href="profile.html" class="btn btn-secondary btn-sm">Edit Skills & Level</a>
+      </div>
+
+      <div class="summary-skills-grid">
+        <!-- Box 1: Skills I Teach -->
+        <div class="summary-skill-box">
+          <div class="summary-box-label" style="color: var(--primary-light);">
+            <span>Skills I Teach</span>
+            <span class="badge badge-purple" id="teach-count-badge">0 Listed</span>
+          </div>
+          <div id="teach-chips-display" class="summary-chips-wrap">
+            <!-- Chips rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Box 2: Skills I Want -->
+        <div class="summary-skill-box">
+          <div class="summary-box-label" style="color: var(--secondary);">
+            <span>Skills I Want</span>
+            <span class="badge badge-cyan" id="learn-count-badge">0 Listed</span>
+          </div>
+          <div id="learn-chips-display" class="summary-chips-wrap">
+            <!-- Chips rendered dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Next Actions Navigation Cards -->
+    <section aria-labelledby="actions-heading">
+      <h2 id="actions-heading" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">
+        Next Steps & Exchange Hub
+      </h2>
+
+      <div class="dashboard-actions-grid">
+        <!-- Action 1: Explore Skills -->
+        <a href="explore.html" class="dash-action-card">
+          <div class="action-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <h3 class="action-card-title">Explore Skills</h3>
+          <p class="action-card-desc">Browse through available technical and creative categories in the peer network.</p>
+          <div class="action-card-footer">
+            <span>Browse Directory</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+        </a>
+
+        <!-- Action 2: Find Matches -->
+        <a href="matches.html" class="dash-action-card">
+          <div class="action-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <h3 class="action-card-title">Find Matches</h3>
+          <p class="action-card-desc" id="dash-match-desc">Discover students who want what you teach and can teach what you seek.</p>
+          <div class="action-card-footer">
+            <span id="dash-match-cta">View Matches</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+        </a>
+
+        <!-- Action 3: My Profile -->
+        <a href="profile.html" class="dash-action-card">
+          <div class="action-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <h3 class="action-card-title">My Profile</h3>
+          <p class="action-card-desc">Update your bio, teaching catalog, learning wishlist, and proficiency level.</p>
+          <div class="action-card-footer">
+            <span>Manage Profile</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+        </a>
+
+        <!-- Action 4: Requests -->
+        <a href="requests.html" class="dash-action-card">
+          <div class="action-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <h3 class="action-card-title" style="margin-bottom: 0;">Swap Requests</h3>
+            <span id="dash-requests-badge" class="tab-badge tab-badge-amber" style="display: none;">0</span>
+          </div>
+          <p class="action-card-desc" id="dash-requests-desc">Review inbound exchange proposals and manage active peer sessions.</p>
+          <div class="action-card-footer">
+            <span id="dash-requests-cta">View Requests</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+        </a>
+
+        <!-- Action 5: My Connections -->
+        <a href="requests.html?tab=connections" class="dash-action-card">
+          <div class="action-card-icon" style="color: var(--secondary);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3 class="action-card-title">My Connections</h3>
+          <p class="action-card-desc" id="dash-connections-desc">Browse peers you have mutually connected with for skill sharing.</p>
+          <div class="action-card-footer">
+            <span id="dash-connections-cta">View Connections</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="padding: 2rem 0; margin-top: auto;">
+    <div class="container footer-bottom" style="border-top: none; padding-top: 0; justify-content: center; text-align: center;">
+      <p>© 2026 SkillSwap • Peer-to-Peer Skill Exchange Platform • College PBL Project</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/matches.js"></script>
+  <script src="../js/requests.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Authentication Protection Guard
+      SkillSwapAuth.requireAuth('login.html');
+
+      const user = SkillSwapAuth.getCurrentUser();
+      if (!user) return; // Guard already redirected
+
+      // 2. Populate User Information
+      const firstName = user.name ? user.name.split(' ')[0] : 'Peer';
+      document.getElementById('user-greeting-name').textContent = firstName;
+      document.getElementById('user-email-text').textContent = user.email;
+
+      // User avatar initials
+      const avatarEl = document.getElementById('user-avatar');
+      const initials = user.name
+        ? user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()
+        : 'SS';
+      avatarEl.textContent = initials;
+
+      // Skill level badge
+      const levelBadge = document.getElementById('user-level-badge');
+      levelBadge.textContent = user.skillLevel || 'Intermediate';
+
+      // 3. Populate Stats (Real data from SkillSwapRequests)
+      const teachCount = user.teachSkills ? user.teachSkills.length : 0;
+      const learnCount = user.learnSkills ? user.learnSkills.length : 0;
+
+      let connectionCount = 0;
+      let pendingTotal = 0;
+      let incomingPending = 0;
+
+      if (typeof SkillSwapRequests !== 'undefined') {
+        const conns = SkillSwapRequests.getUserConnections(user.id);
+        connectionCount = conns.length;
+        const counts = SkillSwapRequests.getPendingCounts(user.id);
+        pendingTotal = counts.total;
+        incomingPending = counts.incoming.length;
+      }
+
+      document.getElementById('stat-offered').textContent = teachCount;
+      document.getElementById('stat-wanted').textContent = learnCount;
+      
+      const statConnEl = document.getElementById('stat-connections');
+      if (statConnEl) statConnEl.textContent = connectionCount;
+
+      const statPendingEl = document.getElementById('stat-pending-requests');
+      if (statPendingEl) statPendingEl.textContent = pendingTotal;
+
+      const statSessionsEl = document.getElementById('stat-sessions');
+      if (statSessionsEl) statSessionsEl.textContent = '0';
+
+      document.getElementById('teach-count-badge').textContent = `${teachCount} Listed`;
+      document.getElementById('learn-count-badge').textContent = `${learnCount} Listed`;
+
+      // 4. Render Skills I Teach
+      const teachContainer = document.getElementById('teach-chips-display');
+      teachContainer.innerHTML = '';
+      if (user.teachSkills && user.teachSkills.length > 0) {
+        user.teachSkills.forEach(skill => {
+          const chip = document.createElement('span');
+          chip.className = 'display-chip display-chip-teach';
+          chip.innerHTML = `
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>${skill}</span>
+          `;
+          teachContainer.appendChild(chip);
+        });
+      } else {
+        teachContainer.innerHTML = `<span style="font-size: 0.85rem; color: var(--text-muted);">No teaching skills listed yet.</span>`;
+      }
+
+      // 5. Render Skills I Want
+      const learnContainer = document.getElementById('learn-chips-display');
+      learnContainer.innerHTML = '';
+      if (user.learnSkills && user.learnSkills.length > 0) {
+        user.learnSkills.forEach(skill => {
+          const chip = document.createElement('span');
+          chip.className = 'display-chip display-chip-learn';
+          chip.innerHTML = `
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>${skill}</span>
+          `;
+          learnContainer.appendChild(chip);
+        });
+      } else {
+        learnContainer.innerHTML = `<span style="font-size: 0.85rem; color: var(--text-muted);">No learning skills listed yet.</span>`;
+      }
+
+      // 6. Calculate Dynamic Match Count for "Find Matches" Card
+      if (typeof SkillSwapMatches !== 'undefined') {
+        const allUsers = SkillSwapAuth.getUsers();
+        const matches = SkillSwapMatches.generateMatches(user, allUsers);
+        const matchDescEl = document.getElementById('dash-match-desc');
+        const matchCtaEl = document.getElementById('dash-match-cta');
+        if (matches.length > 0) {
+          const topScore = matches[0].score;
+          if (matchDescEl) {
+            matchDescEl.innerHTML = `<strong style="color: var(--secondary);">${matches.length} compatible ${matches.length === 1 ? 'match' : 'matches'} found</strong> (up to ${topScore}% compatibility).`;
+          }
+          if (matchCtaEl) {
+            matchCtaEl.textContent = `View ${matches.length} ${matches.length === 1 ? 'Match' : 'Matches'}`;
+          }
+        } else {
+          if (matchDescEl) {
+            matchDescEl.textContent = 'Add more skills to your profile to unlock compatible exchange partners.';
+          }
+        }
+      }
+
+      // 7. Update Quick Actions (Requests Badge & Connections Status)
+      const reqBadgeEl = document.getElementById('dash-requests-badge');
+      const reqDescEl = document.getElementById('dash-requests-desc');
+      const reqCtaEl = document.getElementById('dash-requests-cta');
+      if (incomingPending > 0) {
+        if (reqBadgeEl) {
+          reqBadgeEl.textContent = incomingPending;
+          reqBadgeEl.style.display = 'inline-flex';
+        }
+        if (reqDescEl) {
+          reqDescEl.innerHTML = `<strong style="color: #F59E0B;">${incomingPending} pending ${incomingPending === 1 ? 'request' : 'requests'} waiting for your response.</strong>`;
+        }
+        if (reqCtaEl) {
+          reqCtaEl.textContent = 'Respond Now';
+        }
+      }
+
+      const connDescEl = document.getElementById('dash-connections-desc');
+      const connCtaEl = document.getElementById('dash-connections-cta');
+      if (connectionCount > 0) {
+        if (connDescEl) {
+          connDescEl.innerHTML = `<strong style="color: var(--secondary);">${connectionCount} active ${connectionCount === 1 ? 'connection' : 'connections'} established.</strong>`;
+        }
+        if (connCtaEl) {
+          connCtaEl.textContent = `View ${connectionCount} ${connectionCount === 1 ? 'Connection' : 'Connections'}`;
+        }
+      }
+
+      // 7. Logout Buttons Handler
+      document.querySelectorAll('.js-logout-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          SkillSwapAuth.logoutUser('../index.html');
+        });
+      });
+
+      // 7. Mobile Navigation Drawer Toggle
+      const toggleBtn = document.querySelector('.nav-toggle-btn');
+      const drawer = document.querySelector('.mobile-nav-drawer');
+      const overlay = document.querySelector('.mobile-nav-overlay');
+      if (toggleBtn && drawer && overlay) {
+        toggleBtn.addEventListener('click', () => {
+          const isOpen = drawer.classList.contains('open');
+          drawer.classList.toggle('open', !isOpen);
+          overlay.classList.toggle('open', !isOpen);
+          toggleBtn.classList.toggle('is-active', !isOpen);
+        });
+        overlay.addEventListener('click', () => {
+          drawer.classList.remove('open');
+          overlay.classList.remove('open');
+          toggleBtn.classList.remove('is-active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

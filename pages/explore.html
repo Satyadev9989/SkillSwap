@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore SkillSwap peer directory. Discover students who can teach programming, design, video editing, and more.">
+  <meta name="theme-color" content="#0B0B12">
+
+  <title>Explore Skills | SkillSwap</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#explore-main-content" class="skip-link">Skip to explore directory</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="SkillSwap Home">
+        <div class="logo-icon-wrap" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3l4 4-4 4"></path>
+            <path d="M20 7H4"></path>
+            <path d="M8 21l-4-4 4-4"></path>
+            <path d="M4 17h16"></path>
+          </svg>
+        </div>
+        <div class="brand-name"><span>Skill</span><span>Swap</span></div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="explore.html" class="nav-link active">Explore Skills</a>
+        <a href="../index.html#how-it-works" class="nav-link">How It Works</a>
+        <a href="../index.html#popular-skills" class="nav-link">Popular Skills</a>
+        <a href="../index.html#features" class="nav-link">Features</a>
+      </nav>
+
+      <!-- Desktop Nav Actions (Auth-aware dynamically synchronized) -->
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
+        <a href="signup.html" class="btn btn-primary btn-sm btn-primary-glow">
+          <span>Get Started</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Toggle Button -->
+      <button class="nav-toggle-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <aside id="mobile-nav" class="mobile-nav-drawer" aria-label="Mobile Navigation Drawer">
+    <nav class="mobile-nav-list">
+      <a href="../index.html" class="mobile-nav-link">
+        <span>Home</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="explore.html" class="mobile-nav-link active">
+        <span>Explore Skills</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="dashboard.html" class="mobile-nav-link">
+        <span>Dashboard</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="profile.html" class="mobile-nav-link">
+        <span>My Profile</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="matches.html" class="mobile-nav-link">
+        <span>Find Matches</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+    </nav>
+    <div class="mobile-nav-actions">
+      <a href="login.html" class="btn btn-outline btn-block">Log In</a>
+      <a href="signup.html" class="btn btn-primary btn-block btn-primary-glow">Get Started</a>
+    </div>
+  </aside>
+
+  <!-- Main Explore Page Container -->
+  <main id="explore-main-content" class="container explore-page-wrapper">
+    
+    <!-- 1. Header Section -->
+    <section class="explore-header-section" aria-labelledby="explore-heading">
+      <div class="auth-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Peer Directory & Skill Search</span>
+      </div>
+      <h1 id="explore-heading" class="section-title">
+        Explore <span class="gradient-text">Skills</span>
+      </h1>
+      <p class="section-subtitle">
+        Discover people who can teach what you want to learn. Connect with college peers offering practical mentorship in exchange for your knowledge.
+      </p>
+    </section>
+
+    <!-- 2. Prominent Real-time Search Bar -->
+    <div class="search-bar-container" role="search" aria-label="Search members and skills">
+      <div class="search-input-box">
+        <svg class="search-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="text" 
+          id="explore-search-input" 
+          class="explore-search-input" 
+          placeholder="Search by skill name (Java, UI/UX, Python) or peer name (Alex, Elena)..." 
+          autocomplete="off"
+          aria-label="Search by skill name or peer name"
+        >
+        <button 
+          type="button" 
+          id="clear-search-btn" 
+          class="clear-search-btn" 
+          aria-label="Clear search text" 
+          title="Clear search"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 3. Filter Panel -->
+    <div class="explore-filter-panel" role="region" aria-label="Skill filters and controls">
+      
+      <!-- Category Filter Pills -->
+      <div class="category-pills-row" role="tablist" aria-label="Filter by skill category">
+        <span class="category-pills-label">Category:</span>
+        <button type="button" class="cat-pill-btn active" data-category="all" role="tab" aria-selected="true">All</button>
+        <button type="button" class="cat-pill-btn" data-category="programming" role="tab" aria-selected="false">Programming</button>
+        <button type="button" class="cat-pill-btn" data-category="web-dev" role="tab" aria-selected="false">Web Development</button>
+        <button type="button" class="cat-pill-btn" data-category="design" role="tab" aria-selected="false">Design</button>
+        <button type="button" class="cat-pill-btn" data-category="media" role="tab" aria-selected="false">Video & Media</button>
+        <button type="button" class="cat-pill-btn" data-category="communication" role="tab" aria-selected="false">Communication</button>
+        <button type="button" class="cat-pill-btn" data-category="productivity" role="tab" aria-selected="false">Productivity</button>
+      </div>
+
+      <!-- Secondary Controls Toolbar: Level, Skill, Sort & My Profile Toggle -->
+      <div class="filters-toolbar">
+        <div class="filters-dropdowns-group">
+          
+          <!-- Skill Level Filter -->
+          <div class="filter-select-item">
+            <label for="filter-level-select" class="filter-select-label">Skill Level</label>
+            <select id="filter-level-select" class="filter-select" aria-label="Filter by skill level">
+              <option value="all">All Levels</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+
+          <!-- Teaching Skill Specific Filter -->
+          <div class="filter-select-item">
+            <label for="filter-skill-select" class="filter-select-label">Teaching Skill</label>
+            <select id="filter-skill-select" class="filter-select" aria-label="Filter by specific teaching skill">
+              <option value="all">All Skills</option>
+              <!-- Dynamically populated from catalog -->
+            </select>
+          </div>
+
+          <!-- Sorting Selector -->
+          <div class="filter-select-item">
+            <label for="sort-select" class="filter-select-label">Sort By</label>
+            <select id="sort-select" class="filter-select" aria-label="Sort peer results">
+              <option value="recommended">Recommended</option>
+              <option value="name-asc">Name A–Z</option>
+              <option value="skills-offered">Most Skills Offered</option>
+              <option value="skills-wanted">Most Skills Wanted</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Right Side: "Show my profile" Toggle Switch -->
+        <div style="display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;">
+          <label class="toggle-switch-wrap" for="show-my-profile-toggle" title="Include your own profile in the explore directory">
+            <input type="checkbox" id="show-my-profile-toggle" class="toggle-switch-input" aria-label="Toggle showing my own profile in results">
+            <span class="toggle-switch-track" aria-hidden="true">
+              <span class="toggle-switch-thumb"></span>
+            </span>
+            <span class="toggle-switch-label">Show my profile</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Results Bar (Count & Reset Button) -->
+    <div class="explore-results-bar">
+      <div class="results-count-text">
+        <span id="results-count-text">Loading peers...</span>
+      </div>
+
+      <button type="button" id="reset-filters-btn" class="reset-filters-btn" title="Reset all search queries and filters">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+          <path d="M3 3v5h5"></path>
+        </svg>
+        <span>Reset Filters</span>
+      </button>
+    </div>
+
+    <!-- 5. User Profile Cards Grid -->
+    <section aria-labelledby="results-heading">
+      <h2 id="results-heading" class="sr-only" style="display: none;">Peer Profiles Directory</h2>
+      <div id="explore-cards-grid" class="explore-grid" role="region" aria-live="polite">
+        <!-- User Cards will be rendered dynamically by js/explore.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="padding: 2.5rem 0; margin-top: auto;" role="contentinfo">
+    <div class="container footer-bottom" style="border-top: none; padding-top: 0; justify-content: center; text-align: center;">
+      <p>© 2026 SkillSwap • Peer-to-Peer Skill Exchange Platform • College PBL Project</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/explore.js"></script>
+</body>
+</html>

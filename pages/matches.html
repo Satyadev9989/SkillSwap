@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SkillSwap Matchmaking Engine. Discover students who teach what you want to learn and want what you teach with bidirectional skill compatibility scoring.">
+  <meta name="theme-color" content="#0B0B12">
+
+  <title>Your Skill Matches | SkillSwap</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#matches-main-content" class="skip-link">Skip to skill matches content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="../index.html" class="brand-logo" aria-label="SkillSwap Home">
+        <div class="logo-icon-wrap" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3l4 4-4 4"></path>
+            <path d="M20 7H4"></path>
+            <path d="M8 21l-4-4 4-4"></path>
+            <path d="M4 17h16"></path>
+          </svg>
+        </div>
+        <div class="brand-name"><span>Skill</span><span>Swap</span></div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="explore.html" class="nav-link">Explore Skills</a>
+        <a href="matches.html" class="nav-link active">Find Matches</a>
+        <a href="requests.html" class="nav-link">Requests</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="profile.html" class="nav-link">My Profile</a>
+      </nav>
+
+      <!-- Desktop Nav Actions (Auth-aware dynamically synchronized) -->
+      <div class="nav-actions">
+        <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+        <a href="profile.html" class="btn btn-secondary btn-sm">My Profile</a>
+      </div>
+
+      <!-- Mobile Hamburger Toggle Button -->
+      <button class="nav-toggle-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <aside id="mobile-nav" class="mobile-nav-drawer" aria-label="Mobile Navigation Drawer">
+    <nav class="mobile-nav-list">
+      <a href="../index.html" class="mobile-nav-link">
+        <span>Home</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="explore.html" class="mobile-nav-link">
+        <span>Explore Skills</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="matches.html" class="mobile-nav-link active">
+        <span>Find Matches</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="requests.html" class="mobile-nav-link">
+        <span>Swap Requests</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="dashboard.html" class="mobile-nav-link">
+        <span>Dashboard</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="profile.html" class="mobile-nav-link">
+        <span>My Profile</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+    </nav>
+    <div class="mobile-nav-actions">
+      <a href="dashboard.html" class="btn btn-outline btn-block">Dashboard</a>
+      <a href="profile.html" class="btn btn-secondary btn-block">My Profile</a>
+    </div>
+  </aside>
+
+  <!-- Main Matchmaking Page Container -->
+  <main id="matches-main-content" class="container matches-page-wrapper">
+
+    <!-- 1. Page Header Section -->
+    <section class="matches-header-section" aria-labelledby="matches-heading">
+      <div class="auth-badge" style="margin-bottom: 0.85rem;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        <span>Bidirectional Skill Matchmaking Engine</span>
+      </div>
+      <h1 id="matches-heading" class="section-title">
+        Your <span class="gradient-text">Skill Matches</span>
+      </h1>
+      <p class="section-subtitle" style="max-width: 640px; margin: 0 auto;">
+        People who can teach what you want to learn — and want to learn what you know. Compatibility scores are computed dynamically from actual skill overlap.
+      </p>
+    </section>
+
+    <!-- 2. Incomplete Profile Notification Banner (Shown if user has 0 teach or 0 learn skills) -->
+    <div id="incomplete-profile-banner" class="incomplete-profile-banner" style="display: none;" role="alert">
+      <div class="incomplete-banner-left">
+        <div class="incomplete-banner-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </div>
+        <div>
+          <div class="incomplete-banner-title">Complete Your Profile to Maximize Matches</div>
+          <div class="incomplete-banner-desc">You haven't listed both skills you can teach and skills you want to learn. Add them to your profile so the engine can calculate mutual compatibility.</div>
+        </div>
+      </div>
+      <a href="profile.html" class="btn btn-primary btn-sm">Edit Skills & Level</a>
+    </div>
+
+    <!-- 3. Dynamic Match Summary Ribbon (Pills for Total, Perfect, Strong, Good, Potential) -->
+    <div id="match-summary-ribbon" class="match-summary-ribbon" role="region" aria-label="Match Summary Statistics">
+      <!-- Populated dynamically by js/matches.js -->
+    </div>
+
+    <!-- 4. Match Toolbar (Strength Filter Pills & Sort Select) -->
+    <div class="matches-toolbar">
+      <div class="match-filter-buttons" role="group" aria-label="Filter matches by compatibility strength">
+        <button type="button" class="match-filter-btn active" data-filter="all" aria-pressed="true">All Matches</button>
+        <button type="button" class="match-filter-btn" data-filter="perfect" aria-pressed="false">🔥 Perfect Match</button>
+        <button type="button" class="match-filter-btn" data-filter="strong" aria-pressed="false">⚡ Strong Match</button>
+        <button type="button" class="match-filter-btn" data-filter="good" aria-pressed="false">✨ Good Match</button>
+        <button type="button" class="match-filter-btn" data-filter="potential" aria-pressed="false">💡 Potential Match</button>
+      </div>
+
+      <div class="matches-sort-wrap">
+        <label for="match-sort-select" class="matches-sort-label">Sort by:</label>
+        <select id="match-sort-select" class="matches-sort-select" aria-label="Sort match cards">
+          <option value="best" selected>Best Match (Highest Score)</option>
+          <option value="perfect">Perfect Matches First</option>
+          <option value="strong">Strong Matches First</option>
+          <option value="name">Name (A–Z)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Results count text -->
+    <div id="matches-results-count" class="matches-count-indicator">Loading matches...</div>
+
+    <!-- 5. Match Cards Grid (Rendered dynamically) -->
+    <div id="matches-grid" class="matches-grid" role="region" aria-label="Peer Match Cards List">
+      <!-- Rendered dynamically by js/matches.js -->
+    </div>
+
+    <!-- 6. Polished Empty State (Shown when no users match score > 0) -->
+    <div id="matches-empty-state" class="empty-state-box" style="display: none;" role="region" aria-label="No matches found">
+      <div class="empty-state-icon" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></line>
+          <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
+          <line x1="9" y1="9" x2="9.01" y2="9"></line>
+          <line x1="15" y1="9" x2="15.01" y2="9"></line>
+        </svg>
+      </div>
+      <h2 class="empty-state-title">No skill matches yet</h2>
+      <p class="empty-state-desc">
+        Try adding more skills to your profile so we can find better exchanges. You can also explore the directory to see what skills peers are teaching.
+      </p>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem;">
+        <a href="profile.html" class="btn btn-primary btn-sm">Edit My Skills</a>
+        <a href="explore.html" class="btn btn-secondary btn-sm">Explore Skills</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 7. Accessible Match Details Modal Dialog -->
+  <div id="match-details-modal" class="match-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-peer-name" aria-hidden="true">
+    <div class="match-modal-dialog">
+      <!-- Modal Header -->
+      <div class="modal-dialog-header">
+        <div class="modal-header-profile">
+          <div id="modal-peer-avatar" class="match-peer-avatar" aria-hidden="true">SS</div>
+          <div>
+            <h2 id="modal-peer-name" class="match-peer-name" style="margin-bottom: 0.2rem;">Peer Name</h2>
+            <div style="display: flex; gap: 0.4rem; align-items: center;">
+              <span id="modal-peer-level" class="match-level-badge">Intermediate</span>
+              <span id="modal-score-badge" class="match-quality-badge badge-purple">75% Match</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" id="modal-close-btn" class="modal-close-button" aria-label="Close match details dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-dialog-body">
+        <!-- Section: Compatibility Direction Breakdown -->
+        <div>
+          <div class="modal-section-title">Bidirectional Breakdown</div>
+          <div class="modal-breakdown-card">
+            <!-- Direction A -->
+            <div class="modal-dir-item">
+              <div class="modal-dir-header">
+                <span>What you want that they teach (Direction A)</span>
+                <span id="modal-dir-a-val" class="modal-dir-val">100%</span>
+              </div>
+              <div class="modal-dir-track">
+                <div id="modal-dir-a-bar" class="modal-dir-fill modal-dir-fill-cyan" style="width: 100%;"></div>
+              </div>
+            </div>
+
+            <!-- Direction B -->
+            <div class="modal-dir-item">
+              <div class="modal-dir-header">
+                <span>What they want that you teach (Direction B)</span>
+                <span id="modal-dir-b-val" class="modal-dir-val">50%</span>
+              </div>
+              <div class="modal-dir-track">
+                <div id="modal-dir-b-bar" class="modal-dir-fill modal-dir-fill-purple" style="width: 50%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Skill Exchange Lists -->
+        <div>
+          <div class="modal-section-title">Skill Exchange Coverage</div>
+          <div class="modal-skills-box">
+            <div>
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--secondary-light); margin-bottom: 0.4rem;">THEY CAN TEACH YOU:</div>
+              <div id="modal-they-teach-chips" class="match-chips-list">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary-light); margin-bottom: 0.4rem;">YOU CAN TEACH THEM:</div>
+              <div id="modal-you-teach-chips" class="match-chips-list">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Dynamic Recommendation -->
+        <div class="modal-rec-box">
+          <div class="modal-rec-header">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span>MATCHMAKING RECOMMENDATION</span>
+          </div>
+          <p id="modal-recommendation-text" class="modal-rec-text">
+            Strong mutual compatibility. High skill overlap and practical value for both peers.
+          </p>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-dialog-footer">
+        <a href="#" id="modal-profile-link" class="btn btn-outline btn-sm">
+          <span>View Profile</span>
+        </a>
+        <button type="button" id="modal-send-request-btn" class="btn btn-primary btn-sm btn-primary-glow">
+          <span>Send Swap Request</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Accessible Send Swap Request Confirmation Modal Dialog -->
+  <div id="send-request-modal" class="match-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="send-modal-heading" aria-hidden="true">
+    <div class="match-modal-dialog" style="max-width: 520px;">
+      <!-- Modal Header -->
+      <div class="modal-dialog-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="toast-icon toast-icon-info" style="width: 32px; height: 32px;" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 3l4 4-4 4"></path>
+              <path d="M20 7H4"></path>
+              <path d="M8 21l-4-4 4-4"></path>
+              <path d="M4 17h16"></path>
+            </svg>
+          </div>
+          <h2 id="send-modal-heading" class="match-peer-name" style="margin-bottom: 0;">Send Swap Request</h2>
+        </div>
+        <button type="button" id="send-modal-close-btn" class="modal-close-button" aria-label="Close send request dialog">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-dialog-body" style="gap: 1.25rem;">
+        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.45;">
+          You are proposing a mutual skill exchange with <strong id="send-modal-peer-name" style="color: var(--text-primary);">Peer Name</strong>.
+        </p>
+
+        <!-- Summary Skill Coverage Box -->
+        <div class="modal-skills-box" style="padding: 1rem;">
+          <div>
+            <div style="font-size: 0.72rem; font-weight: 700; color: var(--secondary-light); margin-bottom: 0.35rem; letter-spacing: 0.05em;">THEY CAN TEACH YOU:</div>
+            <div id="send-modal-they-teach" class="match-chips-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+          <div style="margin-top: 0.75rem;">
+            <div style="font-size: 0.72rem; font-weight: 700; color: var(--primary-light); margin-bottom: 0.35rem; letter-spacing: 0.05em;">YOU CAN TEACH THEM:</div>
+            <div id="send-modal-you-teach" class="match-chips-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Optional Message Box -->
+        <div>
+          <label for="send-request-message-input" style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); display: block; margin-bottom: 0.4rem;">
+            Personal Note (Optional, 250 characters max):
+          </label>
+          <textarea 
+            id="send-request-message-input" 
+            class="form-control" 
+            rows="3" 
+            maxlength="250" 
+            placeholder="Hey! Our skills seem like a great match. I'd love to exchange knowledge."
+            style="width: 100%; resize: vertical; min-height: 80px; font-family: var(--font-family); background: rgba(16, 16, 26, 0.85); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 0.75rem; color: var(--text-primary); font-size: 0.85rem;"
+          ></textarea>
+          <div style="display: flex; justify-content: flex-end; margin-top: 0.35rem;">
+            <span id="send-request-char-count" style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">0 / 250</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-dialog-footer">
+        <button type="button" id="send-modal-cancel-btn" class="btn btn-outline btn-sm">Cancel</button>
+        <button type="button" id="send-modal-submit-btn" class="btn btn-primary btn-sm btn-primary-glow">
+          <span>Send Request</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="padding: 2.5rem 0; margin-top: auto;" role="contentinfo">
+    <div class="container footer-bottom" style="border-top: none; padding-top: 0; justify-content: center; text-align: center;">
+      <p>© 2026 SkillSwap • Peer-to-Peer Skill Exchange Platform • College PBL Project</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/data.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/requests.js"></script>
+  <script src="../js/matches.js"></script>
+</body>
+</html>
