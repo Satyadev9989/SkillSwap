@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SkillSwap is a Peer-to-Peer Skill Exchange Platform where students and creators trade knowledge directly. Learn Web Development, UI/UX Design, Python, and more with zero course fees.">
+  <meta name="theme-color" content="#0B0B12">
+
+  <title>SkillSwap | Peer-to-Peer Skill Exchange Platform</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Accessible Skip to Main Content Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- =========================================================================
+       1. NAVIGATION BAR
+       ========================================================================= -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="SkillSwap Homepage">
+        <div class="logo-icon-wrap" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3l4 4-4 4"></path>
+            <path d="M20 7H4"></path>
+            <path d="M8 21l-4-4 4-4"></path>
+            <path d="M4 17h16"></path>
+          </svg>
+        </div>
+        <div class="brand-name">
+          <span>Skill</span><span>Swap</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="pages/explore.html" class="nav-link">Explore Skills</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#popular-skills" class="nav-link">Popular Skills</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+
+      <!-- Desktop Action Buttons -->
+      <div class="nav-actions">
+        <a href="pages/login.html" class="btn btn-outline btn-sm">Log In</a>
+        <a href="pages/signup.html" class="btn btn-primary btn-sm btn-primary-glow">
+          <span>Get Started</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Navigation Hamburger Toggle Button -->
+      <button class="nav-toggle-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+        <span class="hamburger-line" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer Overlay & Panel -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <aside id="mobile-nav" class="mobile-nav-drawer" aria-label="Mobile Navigation Drawer">
+    <nav class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link active">
+        <span>Home</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="pages/explore.html" class="mobile-nav-link">
+        <span>Explore Skills</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="#how-it-works" class="mobile-nav-link">
+        <span>How It Works</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="#popular-skills" class="mobile-nav-link">
+        <span>Popular Skills</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="#features" class="mobile-nav-link">
+        <span>Features</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+      <a href="#about" class="mobile-nav-link">
+        <span>About</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </a>
+    </nav>
+    <div class="mobile-nav-actions">
+      <a href="pages/login.html" class="btn btn-outline btn-block">Log In</a>
+      <a href="pages/signup.html" class="btn btn-primary btn-block btn-primary-glow">Get Started</a>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       MAIN CONTENT
+       ========================================================================= -->
+  <main id="main-content">
+
+    <!-- =======================================================================
+         2. HERO SECTION
+         ======================================================================= -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <!-- Ambient Lighting Blobs -->
+      <div class="hero-glow-1" aria-hidden="true"></div>
+      <div class="hero-glow-2" aria-hidden="true"></div>
+
+      <div class="container hero-grid">
+        <!-- Hero Text & CTAs -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            <span>Peer-to-Peer Knowledge Exchange</span>
+          </div>
+
+          <h1 id="hero-heading" class="hero-headline">
+            Your skills have value. <br>
+            <span class="gradient-text">Trade them for something new.</span>
+          </h1>
+
+          <p class="hero-support-text">
+            Connect with people who know what you want to learn, while sharing what you already know. No expensive courses. Just knowledge exchanged.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="pages/explore.html" class="btn btn-primary btn-lg btn-primary-glow">
+              <span>Explore Skills</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </a>
+            <a href="pages/signup.html" class="btn btn-secondary btn-lg">
+              <span>Start Swapping</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 3l4 4-4 4"></path>
+                <path d="M20 7H4"></path>
+                <path d="M8 21l-4-4 4-4"></path>
+                <path d="M4 17h16"></path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Social Proof Indicator -->
+          <div class="hero-social-proof">
+            <div class="peer-avatars" aria-hidden="true">
+              <div class="peer-avatar avatar-1">JD</div>
+              <div class="peer-avatar avatar-2">AR</div>
+              <div class="peer-avatar avatar-3">EC</div>
+              <div class="peer-avatar avatar-4">+</div>
+            </div>
+            <div class="proof-text">
+              <strong>1,200+ students</strong> swapping programming, design & media skills.
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Skill Exchange Interactive Illustration -->
+        <div class="hero-exchange-wrapper" aria-label="Visual demonstration of peer skill swap">
+          <!-- Floating Accent Micro-badges -->
+          <div class="floating-tag floating-tag-top" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <span>100% Mutual Skill Match</span>
+          </div>
+
+          <div class="floating-tag floating-tag-bottom" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>0 Platform Fees • 1:1 Live Swap</span>
+          </div>
+
+          <div class="exchange-board">
+            <!-- Header bar of exchange widget -->
+            <div class="exchange-header-status">
+              <div class="exchange-status-indicator">
+                <span class="pulse-circle" aria-hidden="true"></span>
+                <span class="exchange-status-text">Active Peer Exchange</span>
+              </div>
+              <span class="exchange-match-badge">Matched Pair</span>
+            </div>
+
+            <!-- Two Peers in Exchange -->
+            <div class="peer-exchange-cards">
+              <!-- Peer 1: Alex Rivera (Teaching JavaScript, Learning UI/UX) -->
+              <article class="peer-card" aria-label="Alex Rivera exchange profile">
+                <div class="peer-card-top">
+                  <div class="peer-user-info">
+                    <div class="peer-avatar-circle avatar-alex" aria-hidden="true">
+                      AR
+                      <span class="online-dot" title="Online now"></span>
+                    </div>
+                    <div class="peer-details">
+                      <h4>Alex Rivera</h4>
+                      <span class="peer-role">Computer Science Junior</span>
+                    </div>
+                  </div>
+                  <div class="peer-rating-pill" aria-label="Rating 4.9 stars out of 5">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <span>4.9 (28 swaps)</span>
+                  </div>
+                </div>
+
+                <div class="peer-skills-exchange">
+                  <div class="skill-slot skill-slot-teaching">
+                    <span class="skill-slot-label">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                      Teaches
+                    </span>
+                    <span class="skill-chip chip-primary">JavaScript ES6+</span>
+                  </div>
+                  <div class="skill-slot skill-slot-learning">
+                    <span class="skill-slot-label">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                      Wants
+                    </span>
+                    <span class="skill-chip chip-secondary">UI/UX Design</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Center Interactive Exchange Node -->
+              <div class="exchange-divider-bridge" aria-hidden="true">
+                <div class="exchange-swap-badge">
+                  <svg class="swap-arrows-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L21 16M17 20L13 16"></path>
+                  </svg>
+                  <span>Mutual Skill Exchange</span>
+                </div>
+              </div>
+
+              <!-- Peer 2: Elena Chen (Teaching UI/UX Design, Learning JavaScript) -->
+              <article class="peer-card" aria-label="Elena Chen exchange profile">
+                <div class="peer-card-top">
+                  <div class="peer-user-info">
+                    <div class="peer-avatar-circle avatar-elena" aria-hidden="true">
+                      EC
+                      <span class="online-dot" title="Online now"></span>
+                    </div>
+                    <div class="peer-details">
+                      <h4>Elena Chen</h4>
+                      <span class="peer-role">Digital Media & UX Senior</span>
+                    </div>
+                  </div>
+                  <div class="peer-rating-pill" aria-label="Rating 5.0 stars out of 5">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <span>5.0 (34 swaps)</span>
+                  </div>
+                </div>
+
+                <div class="peer-skills-exchange">
+                  <div class="skill-slot skill-slot-teaching">
+                    <span class="skill-slot-label">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                      Teaches
+                    </span>
+                    <span class="skill-chip chip-secondary">UI/UX & Figma</span>
+                  </div>
+                  <div class="skill-slot skill-slot-learning">
+                    <span class="skill-slot-label">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                      Wants
+                    </span>
+                    <span class="skill-chip chip-primary">JavaScript</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Footer of exchange card -->
+            <div class="exchange-footer-info">
+              <span class="exchange-schedule-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Live Session: Today at 5:00 PM</span>
+              </span>
+              <button type="button" class="exchange-action-btn" title="Simulate mutual exchange test">
+                <span>Simulate Swap</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics Bar / Stats Ribbon -->
+    <section class="stats-ribbon" aria-label="Platform Statistics">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">1,200+</div>
+            <div class="stat-label">Active Learners</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">85+</div>
+            <div class="stat-label">Skills Cataloged</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4,500+</div>
+            <div class="stat-label">Sessions Swapped</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Free Peer-to-Peer</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         3. HOW IT WORKS SECTION
+         ======================================================================= -->
+    <section id="how-it-works" class="section" aria-labelledby="how-it-works-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            Simple 3-Step Process
+          </div>
+          <h2 id="how-it-works-title" class="section-title">
+            How <span class="gradient-text">SkillSwap</span> Works
+          </h2>
+          <p class="section-subtitle">
+            Direct peer learning made collaborative, structured, and completely accessible without financial barriers.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1: Share Your Skills -->
+          <article class="step-card">
+            <div class="step-number">01</div>
+            <div class="step-icon-wrap" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <h3 class="step-title">Share Your Skills</h3>
+            <p class="step-desc">
+              List what you already know—whether it is Web Development, UI/UX, or Java. Define your comfort level and what skills you wish to learn in exchange.
+            </p>
+            <ul class="step-features-list">
+              <li class="step-feature-item">
+                <svg class="step-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Custom skill topic tags</span>
+              </li>
+              <li class="step-feature-item">
+                <svg class="step-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Flexible schedule preferences</span>
+              </li>
+              <li class="step-feature-item">
+                <svg class="step-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Personal portfolio showcase</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Step 2: Find Your Match -->
+          <article class="step-card">
+            <div class="step-number">02</div>
+            <div class="step-icon-wrap" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+            <h3 class="step-title">Find Your Match</h3>
+            <p class="step-desc">
+              Browse through fellow student peers or let our mutual compatibility algorithm pair you with students who want what you teach and teach what you want.
+            </p>
+            <ul class="step-features-list">
+              <li class="step-feature-item">
+                <svg class="step-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Bidirectional interest matching</span>
+              </li>
+              <li class="step-feature-item">
+                <svg class="step-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Skill proficiency filtering</span>
+              </li>
+              <li class="step-feature-item">
+                <svg class="step-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Direct 1-on-1 swap proposals</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Step 3: Learn & Exchange -->
+          <article class="step-card">
+            <div class="step-number">03</div>
+            <div class="step-icon-wrap" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="step-title">Learn & Exchange</h3>
+            <p class="step-desc">
+              Schedule interactive sessions, complete hands-on practical exercises together, review code or design files, and build mutual peer endorsements.
+            </p>
+            <ul class="step-features-list">
+              <li class="step-feature-item">
+                <svg class="step-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Real-time code & design pairing</span>
+              </li>
+              <li class="step-feature-item">
+                <svg class="step-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Structured milestone roadmaps</span>
+              </li>
+              <li class="step-feature-item">
+                <svg class="step-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Verified peer reviews & ratings</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4. POPULAR SKILLS SECTION
+         ======================================================================= -->
+    <section id="popular-skills" class="section" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Trending on Campus
+          </div>
+          <h2 id="skills-heading" class="section-title">
+            Popular Skills in <span class="gradient-text">High Demand</span>
+          </h2>
+          <p class="section-subtitle">
+            Browse through the most active skill domains. Connect with peers ready to teach and learn these disciplines today.
+          </p>
+        </div>
+
+        <!-- Interactive Filter Tabs -->
+        <div class="skills-filter-bar" role="tablist" aria-label="Filter skills by discipline">
+          <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Skills</button>
+          <button type="button" class="filter-btn" data-filter="development" role="tab" aria-selected="false">Web & Software</button>
+          <button type="button" class="filter-btn" data-filter="programming" role="tab" aria-selected="false">Languages</button>
+          <button type="button" class="filter-btn" data-filter="design" role="tab" aria-selected="false">UI/UX & Design</button>
+          <button type="button" class="filter-btn" data-filter="media" role="tab" aria-selected="false">Video & Media</button>
+        </div>
+
+        <!-- Skills Cards Grid -->
+        <div class="skills-grid">
+          <!-- Card 1: Web Development -->
+          <article class="skill-card" data-category="development" aria-label="Web Development skill card">
+            <div class="skill-card-top">
+              <div class="skill-icon-badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <div class="skill-peers-counter">
+                <span class="peer-dot" aria-hidden="true"></span>
+                <span>184 Active Peers</span>
+              </div>
+            </div>
+            <h3 class="skill-name">Web Development</h3>
+            <p class="skill-desc">
+              Master modern frontend architecture: semantic HTML5, CSS Grid & Flexbox, JavaScript DOM manipulation, and responsive web design.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML5 & CSS3</span>
+              <span class="skill-tag">Vanilla JS</span>
+              <span class="skill-tag">Responsive UI</span>
+            </div>
+            <div class="skill-card-bottom">
+              <span class="badge badge-purple">Frontend Track</span>
+              <a href="pages/explore.html" class="skill-link" data-skill-name="Web Development">
+                <span>Find Peers</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2: Java Programming -->
+          <article class="skill-card" data-category="programming" aria-label="Java Programming skill card">
+            <div class="skill-card-top">
+              <div class="skill-icon-badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="1" x2="6" y2="4"></line>
+                  <line x1="10" y1="1" x2="10" y2="4"></line>
+                  <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+              </div>
+              <div class="skill-peers-counter">
+                <span class="peer-dot" aria-hidden="true"></span>
+                <span>142 Active Peers</span>
+              </div>
+            </div>
+            <h3 class="skill-name">Java Programming</h3>
+            <p class="skill-desc">
+              Build rock-solid Object-Oriented foundation, solve complex Data Structures & Algorithms, and prepare for technical placement rounds.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Core OOP</span>
+              <span class="skill-tag">Data Structures</span>
+              <span class="skill-tag">Algorithms</span>
+            </div>
+            <div class="skill-card-bottom">
+              <span class="badge badge-cyan">Computer Science</span>
+              <a href="pages/explore.html" class="skill-link" data-skill-name="Java Programming">
+                <span>Find Peers</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3: UI/UX Design -->
+          <article class="skill-card" data-category="design" aria-label="UI/UX Design skill card">
+            <div class="skill-card-top">
+              <div class="skill-icon-badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                  <path d="M2 12h20"></path>
+                </svg>
+              </div>
+              <div class="skill-peers-counter">
+                <span class="peer-dot" aria-hidden="true"></span>
+                <span>215 Active Peers</span>
+              </div>
+            </div>
+            <h3 class="skill-name">UI/UX Design</h3>
+            <p class="skill-desc">
+              Design intuitive, high-fidelity SaaS interfaces, conduct user journey research, build scalable Figma design systems and prototypes.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">Design Systems</span>
+              <span class="skill-tag">Prototyping</span>
+            </div>
+            <div class="skill-card-bottom">
+              <span class="badge badge-purple">Product Design</span>
+              <a href="pages/explore.html" class="skill-link" data-skill-name="UI/UX Design">
+                <span>Find Peers</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 4: Video Editing -->
+          <article class="skill-card" data-category="media" aria-label="Video Editing skill card">
+            <div class="skill-card-top">
+              <div class="skill-icon-badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                  <line x1="7" y1="2" x2="7" y2="22"></line>
+                  <line x1="17" y1="2" x2="17" y2="22"></line>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <line x1="2" y1="7" x2="7" y2="7"></line>
+                  <line x1="2" y1="17" x2="7" y2="17"></line>
+                  <line x1="17" y1="17" x2="22" y2="17"></line>
+                  <line x1="17" y1="7" x2="22" y2="7"></line>
+                </svg>
+              </div>
+              <div class="skill-peers-counter">
+                <span class="peer-dot" aria-hidden="true"></span>
+                <span>98 Active Peers</span>
+              </div>
+            </div>
+            <h3 class="skill-name">Video Editing</h3>
+            <p class="skill-desc">
+              Create cinematic storytelling with DaVinci Resolve and Premiere Pro. Master audio mixing, color grading, pacing, and motion graphics.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Premiere Pro</span>
+              <span class="skill-tag">DaVinci Resolve</span>
+              <span class="skill-tag">Color Grading</span>
+            </div>
+            <div class="skill-card-bottom">
+              <span class="badge badge-cyan">Content Creation</span>
+              <a href="pages/explore.html" class="skill-link" data-skill-name="Video Editing">
+                <span>Find Peers</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 5: Python -->
+          <article class="skill-card" data-category="programming" aria-label="Python Programming skill card">
+            <div class="skill-card-top">
+              <div class="skill-icon-badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="4 17 10 11 4 5"></polyline>
+                  <line x1="12" y1="19" x2="20" y2="19"></line>
+                </svg>
+              </div>
+              <div class="skill-peers-counter">
+                <span class="peer-dot" aria-hidden="true"></span>
+                <span>238 Active Peers</span>
+              </div>
+            </div>
+            <h3 class="skill-name">Python</h3>
+            <p class="skill-desc">
+              Explore automation scripts, data analysis with Pandas and NumPy, web scraping, and building lightweight backend microservices.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Automation</span>
+              <span class="skill-tag">Data Science</span>
+              <span class="skill-tag">Backend APIs</span>
+            </div>
+            <div class="skill-card-bottom">
+              <span class="badge badge-purple">Data & Scripting</span>
+              <a href="pages/explore.html" class="skill-link" data-skill-name="Python">
+                <span>Find Peers</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 6: Graphic Design -->
+          <article class="skill-card" data-category="design" aria-label="Graphic Design skill card">
+            <div class="skill-card-top">
+              <div class="skill-icon-badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                  <path d="M2 2l7.586 7.586"></path>
+                  <circle cx="11" cy="11" r="2"></circle>
+                </svg>
+              </div>
+              <div class="skill-peers-counter">
+                <span class="peer-dot" aria-hidden="true"></span>
+                <span>126 Active Peers</span>
+              </div>
+            </div>
+            <h3 class="skill-name">Graphic Design</h3>
+            <p class="skill-desc">
+              Craft compelling vector illustrations, social banners, brand assets, and print collaterals using Photoshop, Illustrator, and Canva.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Illustrator</span>
+              <span class="skill-tag">Photoshop</span>
+              <span class="skill-tag">Branding</span>
+            </div>
+            <div class="skill-card-bottom">
+              <span class="badge badge-cyan">Visual Arts</span>
+              <a href="pages/explore.html" class="skill-link" data-skill-name="Graphic Design">
+                <span>Find Peers</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. FEATURE HIGHLIGHTS SECTION
+         ======================================================================= -->
+    <section id="features" class="section" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            Why SkillSwap
+          </div>
+          <h2 id="features-title" class="section-title">
+            Engineered for <span class="gradient-text">Collaborative Growth</span>
+          </h2>
+          <p class="section-subtitle">
+            Say goodbye to passive pre-recorded video libraries and expensive recurring subscriptions. Experience direct peer mentorship.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1: Learn without expensive courses -->
+          <article class="feature-card">
+            <div class="feature-icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h3>Learn without expensive courses</h3>
+              <p>
+                Eliminate paywalls and pricey bootcamps. Trade your existing expertise in exchange for direct 1-on-1 tutoring, asking real-time questions that pre-recorded videos can never answer.
+              </p>
+            </div>
+          </article>
+
+          <!-- Feature 2: Teach at your own pace -->
+          <article class="feature-card">
+            <div class="feature-icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h3>Teach at your own pace</h3>
+              <p>
+                You control your own schedule. Set convenient time slots around college lectures, lab schedules, exam intervals, and extracurricular projects without rigid deadlines.
+              </p>
+            </div>
+          </article>
+
+          <!-- Feature 3: Connect with like-minded people -->
+          <article class="feature-card">
+            <div class="feature-icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <line x1="19" y1="8" x2="19" y2="14"></line>
+                <line x1="22" y1="11" x2="16" y2="11"></line>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h3>Connect with like-minded people</h3>
+              <p>
+                Form meaningful connections with passionate coders, designers, and creators from campus and across institutions who share your hunger for personal growth.
+              </p>
+            </div>
+          </article>
+
+          <!-- Feature 4: Grow your skill portfolio -->
+          <article class="feature-card">
+            <div class="feature-icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <div class="feature-content">
+              <h3>Grow your skill portfolio</h3>
+              <p>
+                Build authentic credibility through verified peer reviews, completed swap milestones, and concrete collaborative mini-projects you can proudly showcase on your resume.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. CALL TO ACTION SECTION
+         ======================================================================= -->
+    <section class="section cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-box">
+          <div class="cta-inner">
+            <div class="section-tag" style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: var(--primary-light);">
+              Start Your Exchange Journey
+            </div>
+            <h2 id="cta-title" class="cta-title">
+              Your next skill is <br>
+              <span class="gradient-text">one connection away.</span>
+            </h2>
+            <p class="cta-desc">
+              Join college peers who are actively upgrading their capabilities through genuine peer-to-peer exchange. Completely free, collaborative, and student-first.
+            </p>
+            <div class="cta-actions">
+              <a href="pages/signup.html" class="btn btn-primary btn-lg btn-primary-glow" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+                <span>Join SkillSwap</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <span class="cta-guarantee">No credit card required • Instant profile setup • 100% Peer-to-Peer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       7. FOOTER
+       ========================================================================= -->
+  <footer id="about" class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Logo & About Column -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="SkillSwap Home">
+            <div class="logo-icon-wrap" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 3l4 4-4 4"></path>
+                <path d="M20 7H4"></path>
+                <path d="M8 21l-4-4 4-4"></path>
+                <path d="M4 17h16"></path>
+              </svg>
+            </div>
+            <div class="brand-name">
+              <span>Skill</span><span>Swap</span>
+            </div>
+          </a>
+          <p>
+            A modern Peer-to-Peer Skill Exchange platform empowering students to teach what they know and master what they wish through direct collaboration.
+          </p>
+          <div class="footer-pbl-tag">
+            College PBL Project • Frontend Track
+          </div>
+        </div>
+
+        <!-- Column 1: About & Info -->
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul class="footer-links">
+            <li><a href="#about" class="footer-link">Platform Story</a></li>
+            <li><a href="#how-it-works" class="footer-link">How It Works</a></li>
+            <li><a href="#features" class="footer-link">Why Peer Exchange</a></li>
+            <li><a href="pages/dashboard.html" class="footer-link">Student Hub</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Explore Skills -->
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="pages/explore.html" class="footer-link">Web Development</a></li>
+            <li><a href="pages/explore.html" class="footer-link">Java Programming</a></li>
+            <li><a href="pages/explore.html" class="footer-link">UI/UX Design</a></li>
+            <li><a href="pages/explore.html" class="footer-link">Python & Data</a></li>
+            <li><a href="pages/explore.html" class="footer-link">All 85+ Skills</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Platform & Links -->
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="pages/matches.html" class="footer-link">Smart Matchmaking</a></li>
+            <li><a href="pages/requests.html" class="footer-link">Swap Proposals</a></li>
+            <li><a href="pages/profile.html" class="footer-link">Peer Profiles</a></li>
+            <li><a href="pages/signup.html" class="footer-link">Join Network</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact & Project -->
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="pages/signup.html" class="footer-link">Student Community</a></li>
+            <li><a href="mailto:support@skillswap.pbl.internal" class="footer-link">Project Team</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link">Project Repository ↗</a></li>
+            <li><a href="#how-it-works" class="footer-link">FAQ & Guidelines</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 SkillSwap Platform. Built for College PBL Demonstration.
+        </div>
+        <div class="footer-status-pill">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>System Status: Operational • Dark Mode SaaS</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container for Micro-Interactions -->
+  <div class="toast-container" role="status" aria-live="polite"></div>
+
+  <!-- Modular Vanilla JavaScript Files -->
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
